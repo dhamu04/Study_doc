@@ -1,0 +1,318 @@
+# def smallest_number(lst):
+#     new_lst =lst[0]
+#     for i in lst:
+#         if new_lst > i:
+#             new_lst=i
+#     print(new_lst)
+# lst = [12,2,11,3,4,6,5]
+# smallest_number(lst)
+
+
+# def largest_number(lst):
+#     new_lst =lst[0]
+#     for i in lst:
+#         if new_lst > i:
+#             new_lst=i
+#     print(new_lst)
+# lst = [12,2,11,3,4,6,5]
+# largest_number(lst)
+
+
+# lst = [12,2,11,3,4,6,5,100]
+
+# new_lst = lst[0]
+# for i in lst:
+#     if new_lst < i:
+#         new_lst = i
+# print("Largest number is:", new_lst)
+
+
+
+# lst = [12,2,11,3,4,6,5,100]
+
+# new_lst = lst[0]
+# for i in lst:   
+#     if new_lst > i:
+#         new_lst = i
+# print("Smallest number is:", new_lst)
+
+
+# lst = [20,30,40,10,0,50]
+
+# for i in range(len(lst)):
+#     for j in range(i+1):
+#         if lst[i] or lst[j]==0:
+#             a = lst.index(lst[i])
+#             print(a)
+#         else:
+#             if lst[i] < lst[j]:
+#                 lst[i], lst[j] = lst[j], lst[i]
+# print("Smallest number is:", lst)
+# print("Sorted list is:", lst.insert(a, 0))
+
+
+# a= lst.index(0)
+# print("Index of 0 is:", a)
+
+# lst.remove(0)
+# print(lst)
+
+# b =lst.sort()
+# print(lst)
+
+# lst.insert(a, 0)
+# print(lst)
+
+
+# lst = [20,30,40,0,60,10,50]
+
+# for i in range(len(lst)):
+#     for j in range(i+1):
+#         if lst[i] ==0 or lst[j]==0:
+#             lst[i], lst[j] = lst[i], lst[j]
+#         else:
+#             if lst[i] < lst[j]:
+#                 lst[i], lst[j] = lst[j], lst[i]
+# print(lst)
+
+# import re
+# ip ="15.200.10.122"
+# pattern = "^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$"
+
+# ip = re.search(pattern, ip)
+
+# if ip:
+#     print("Valied ip")
+# else:
+#     print("Invalid ip")
+
+# a = "1a2b3c"
+
+# output =''
+# for i in range(0, len(a), 2):
+#     num = int(a[i])
+#     char = a[i+1]
+
+#     output += char * num + ""
+# print(output)
+
+
+from itertools import groupby
+
+a = "abbccc"
+output = ""
+
+for char, group in groupby(a):
+    
+    count = len(list(group))
+    
+    output += str(count) + char
+
+print(output)
+
+
+a = "abbccc"
+
+temp ={}
+
+for i in a:
+
+  if i in temp:
+
+    temp[i]+=1
+
+  else:
+
+    temp[i] =1
+
+output=''
+
+for key, values in temp.items():
+
+  output+= key+""+str(values)
+
+print(output)
+
+====================================
+
+lst1 = [1,3,5,7,9,11,[13,15,17],18,19,20]  --> output [1, 3, 5, 7, 9, 11, 13, 15, 17, 18, 19, 20]
+
+
+lst2=[]
+
+for item in lst1:
+    if isinstance(item, list):
+        lst2.extend(item)
+    else:
+        lst2.append(item)
+        
+lst2.sort()
+
+print(lst2)
+
+================================================================
+
+
+lst1=[4,5,6,7,8,4,5,6]  output ---> [4,5,6]
+
+
+lst2 =[]
+for i in lst1:
+    if lst1.count(i)>1 and i not in lst2:
+        lst2.append(i)
+print(lst2)
+
+================================================================
+
+
+lst1 = [1, 2, 3, 9, 10, 4, [5, 6, 7], 8]  ----> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+flattened = []
+
+for item in lst1:
+    if type(item) == list:   # checking type without isinstance
+        flattened.extend(item)
+    else:
+        flattened.append(item)
+        
+flattened.sort()
+
+print(flattened)
+
+
+==================================================================
+lst1=[4,5,6,7,8,4,5,6]  #output ---> [4,5,6]
+
+a={}
+
+for i in lst1:
+    if i in a:
+        a[i]+=1
+    else:
+        a[i]=1
+print(a)
+
+b=[]
+for key,values in a.items():
+    if values > 1:
+        b.append(key)
+print(b)
+
+===================================================================
+a={'a':1, 'b':4, 'c':5, 'd':3}   ---> {'a': 1, 'd': 3, 'b': 4, 'c': 5}
+keys =list(a.keys())
+values= list(a.values())
+
+for i in range(len(values)):
+    for j in range(i+1, len(values)):
+        if values[i] > values[j]:
+            values[i], values[j] = values[j], values[i]
+            keys[i], keys[j] = keys[j], keys[i]
+print(keys)
+
+d={}
+
+for i in range(len(keys)):
+    d[keys[i]]= values[i]
+print(d)
+
+==============================================
+
+Input= ([1, 2, 3, 4, 5, 6, 7], 8)
+Output =[(1, 7), (2, 6), (3, 5)]
+
+input= ([1, 2, 3, 4, 5, 6, 7], 8)
+
+a= input[0]
+b=[]
+for i in range(len(a)//2):
+    c=(a[i],a[-(i+1)])
+    b.append(c)
+print(b)
+
+==============================================
+
+input = {"address": {"pin": 1111, "ph":2222, "landmrk": "502A"}}
+#output: {'address_pin' :111, 'address_ph':2222, 'address_landmrk':"502A"}
+temp=''
+dict1={}
+for key, values in input.items():
+    for kee in values.items():
+        temp=key +"_"+kee[0]
+        dict1[temp]=kee[1]
+print(dict1)
+
+==============================================
+
+input_string ="broadcom.swi"
+
+substrings=[]
+
+max_len=0
+
+longest_string =''
+
+for start in range(len(input_string)):
+    seen =set()
+    
+    substring=''
+    for i in range(start, len(input_string)):
+        
+        char =input_string[i]
+        
+        if char in seen:
+            break
+        seen.add(char)
+        substring+=char
+    
+    substrings.append(substring)
+    
+    if len(substring) > max_len:
+        max_len = len(substring)
+        longest_string = substring
+
+for s in substrings:
+    print(s)
+
+print("Longest sub-string is :", longest_string)
+
+==============================================
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+
